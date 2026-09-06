@@ -6,13 +6,13 @@ public class Ex2 {
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
 
-        final int ans = random.nextInt(100);
+        final int ANS = random.nextInt(100);
 
         System.out.print("\nAdvinhe um número inteiro de 0 a 100: ");
         int guess = scan.nextInt();
 
-        while(guess != ans){
-            if(ans < guess)
+        while(guess != ANS){
+            if(ANS < guess)
                 System.out.print("MAIOR. ");
             else
                 System.out.print("MENOR. ");
@@ -21,7 +21,7 @@ public class Ex2 {
             guess = scan.nextInt();
         }
 
-        System.out.println("\nVocê acertou! O valor era igual a " + ans + ".\n");
+        System.out.println("\nVocê acertou! O valor era igual a " + ANS + ".\n");
 
         scan.close();
     }
