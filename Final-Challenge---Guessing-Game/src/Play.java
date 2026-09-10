@@ -33,7 +33,8 @@ public class Play {
 
     public static void play(){
         ans = randomize.nextInt((upperLim - BOTTOM_LIM) + 1) + BOTTOM_LIM;
-        System.out.println("\n\n== Advinhe um número de " + BOTTOM_LIM + " a " + upperLim + " ==\n");
+        System.out.println("\n\n=== Advinhe um número de " + BOTTOM_LIM + " a " + upperLim + " ===");
+        System.out.println("--- Você pode pedir dicas (penalidade em pontos) a qualquer momento, digitando -1, -2 ou -3 ---\n");
 
         boolean win = false;
         while(remAttempts > 0 && !win){
@@ -41,10 +42,14 @@ public class Play {
             System.out.print("Seu chute .............: ");
 
             int guess = scan.nextInt();
-            int attRes = handleGuess(guess);
             System.out.println();
 
-            switch (attRes) {
+            switch (handleGuess(guess)) {
+                case -1:{ // Out of bounds
+                    System.out.println("\nTentativa inválida! O chute está fora do intervalo.");
+                    System.out.println("Tente novamente.");
+                    break;
+                }
                 case 0:{ // Win
                     System.out.println("\n\n\n=== Parabéns! Você acertou o número sorteado! ===\n");
                     remAttempts--;
@@ -62,15 +67,14 @@ public class Play {
                     remAttempts--;
                     break;
                 }
-                case 3:{
+                case 3:{ // remAttempts == 0
                     System.out.println("\n\n\n= Game Over! Acabaram suas tentativas! =\n");
                     remAttempts--;
                     handleEnd(false);
                     break;
                 }
-                case -1:{ // Out of bounds
-                    System.out.println("\nTentativa inválida! O chute está fora do intervalo.");
-                    System.out.println("Tente novamente.");
+                case 4:{
+                    score += Tips.showTip(guess);
                     break;
                 }
                 default:{ // Error
@@ -83,9 +87,13 @@ public class Play {
     }
 
     public static int handleGuess(int guess){
-        if(guess < BOTTOM_LIM || guess > upperLim) return -1;
-        if(guess == ans) return 0;
-        if(remAttempts <= 1) return 3;
+        if(guess >= -3 && guess <= -1) return 4; // Tip
+        if(guess < BOTTOM_LIM || guess > upperLim || guess == 0) return -1; // Out of bounds
+        if(guess == ans) return 0; // Win
+        if(remAttempts <= 1) return 3; // No remaining attempts
+        // This case is after win and OoB, but before less / more cases
+        // because you can always win or try again in those past cases,
+        // but not in the following
         if(guess < ans) return 1;
         if(guess > ans) return 2;
 
@@ -94,13 +102,12 @@ public class Play {
 
     public static void handleEnd(boolean didWin){
         final int MAX_ATT = Stats.DIF_SETTINGS[difficulty][2];
+
         score += remAttempts * Stats.FAST_CONC_BONUS;
         score += (MAX_ATT-remAttempts) * Stats.PER_TRY_PENALTY;
 
-
         System.out.println("- Estatísticas da partida -\n");
-        System.out.print("Dificuldade: ");
-        Stats.showDifficulty(difficulty);
+        System.out.print("Dificuldade: " + Stats.difficulties[difficulty] + "\n");
         System.out.println("Pontuação final: " + score);
         System.out.println("Tentativas usadas: " + (MAX_ATT-remAttempts) + "/" + MAX_ATT);
         System.out.print("Status: " + (didWin ? "Vitória" : "Derrota"));
