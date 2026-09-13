@@ -28,7 +28,7 @@ public class Main {
             if(!startNewGame) continue;
 
             Play.newGame();
-            Play.play();
+            Play.playGame();
         }
     }
 

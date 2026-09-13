@@ -3,13 +3,20 @@ import java.util.Scanner;
 public class Stats {
     static Scanner scan = new Scanner(System.in);
 
-    static final String[] difficulties = {"Fácil", "Médio", "Difícil"};
+    // "Fácil", "Médio" and "Difícil" are for simple mode, while 
+    // "Avançado" and "Especialista" are for sequence mode
+    static final String[] difficulties = {"Fácil", "Médio", "Difícil", "Avançado", "Especialista"};
     // [][0] - base score
     // [][1] - number max limit
     // [][2] - max attempts
-    static final int[][] DIF_SETTINGS = { {100, 50, 10},
-                                        {200, 100, 7},
-                                        {300, 200, 5} };
+    static final int[][] DIF_SETTINGS = {   {100, 50, 10},      // Easy
+                                            {200, 100, 7},      // Medium
+                                            {300, 200, 5},      // Hard
+                                            {500, 200, 13},     // Advanced
+                                            {700, 400, 18}   }; // Specialist
+
+    // Quantity of drawn numbers
+    static final int[] QTT_DRAWN_MODE = {1, 3};
 
     static final int PER_TRY_PENALTY = -10;
     static final int FAST_CONC_BONUS = 50;
@@ -24,7 +31,7 @@ public class Stats {
     static int scoreHistorySize = 0;
     //   [] - difficulty
     // [][] - score, status
-    static int[][] scoreRecords = new int[3][2];
+    static int[][] scoreRecords = new int[5][2];
     public static void initializeScoreRecords(){
         for(int i=0; i<scoreRecords.length; i++){
             scoreRecords[i][0] = Integer.MIN_VALUE;
@@ -41,7 +48,7 @@ public class Stats {
         if(scoreRecords[difficulty][0] < score){ // Beat record
             scoreRecords[difficulty][0] = score;
             scoreRecords[difficulty][1] = status ? 1 : 0;
-        } else if(scoreRecords[difficulty][0] == score && status){ // same score, but winning
+        } else if(scoreRecords[difficulty][0] == score && status){ // Same score, but winning
             scoreRecords[difficulty][1] = 1;
         }
 
@@ -80,6 +87,8 @@ public class Stats {
 
         System.out.println("\n-- Sistema de Dificuldade --\n");
 
+        System.out.println("= Modo Simples =\n");
+
         System.out.println("    Fácil:\n" + 
                             "        Adivinhar um número entre: 1 e 50;\n" +
                             "        Tentativas: 10;\n" +
@@ -94,6 +103,18 @@ public class Stats {
                             "        Advinhar um número entre: 1 e 200;\n" +
                             "        Tentativas: 5;\n" + 
                             "        Pontuação base: 300.\n");
+
+        System.out.println("= Modo Sequência =\n");
+
+        System.out.println("    Avançado:\n" + 
+                            "        Advinhar três números entre: 1 e 200;\n" +
+                            "        Tentativas: 13;\n" + 
+                            "        Pontuação base: 500.\n");
+        
+        System.out.println("    Especialista:\n" + 
+                            "        Advinhar três números entre: 1 e 400;\n" +
+                            "        Tentativas: 18;\n" + 
+                            "        Pontuação base: 700.\n");
 
         System.out.println("\n-- Pontuações --\n");
 
@@ -112,26 +133,30 @@ public class Stats {
                             "    digite um dos seguintes valores NEGATIVOS, \n" +
                             "    conforme o tipo desejado de dica: \n");
 
-        System.out.println("    -1. Dica sobre a paridade do valor sorteado (par/ímpar)");
-        System.out.println("    -2. Dica sobre o intervalo do valor sorteado (inferior/superior)");
-        System.out.println("    -3. Dica sobre a proximidade do chute anterior ao valor sorteado (quente/morno/frio)\n");
+        System.out.println("    -1. Dica sobre a paridade do(s) valor(es) sorteado(s) (par/ímpar)");
+        System.out.println("    -2. Dica sobre o(s) intervalo(s) do(s) valor(es) sorteado(s) (inferior/superior)");
+        System.out.println("    -3. Dica sobre a proximidade do chute anterior ao(s) valor(es) sorteado(s) (quente/morno/frio)\n");
 
         System.out.println("\nDetalhamento:\n");
+
         System.out.println("    -2. Cita \"inferior\" caso o valor sorteado seja menor ou igual à mediana \n" + 
                             "    do intervalo disponível no nível. \"Superior\", caso contrário. \n" +
                             "    Exemplo: No modo difícil, onde o intervalo é [1, 200], \"inferior\" \n" +
                             "    indica que o valor é menor ou igual a 100.\n");
-        System.out.println("    -3. Indica, de acordo com o tamanho relativo da distância entre chute e valor sorteado: \n\n" + 
-                            "    \"Quente\", para distância equivalente a até 5% do intervalo disponível; \n" +
-                            "    \"Morno\", para distância equivalente a até 15% do intervalo disponível; \n" +
-                            "    \"Frio\", para distância equivalente a mais de 15% do intervalo disponível;\n");
+        System.out.println("    -3. Indica, de acordo com o tamanho relativo da distância entre chute e valor sorteado: \n" + 
+                            "        \"Quente\", para distância equivalente a até 5% do intervalo disponível; \n" +
+                            "        \"Morno\", para distância equivalente a até 15% do intervalo disponível; \n" +
+                            "        \"Frio\", para distância equivalente a mais de 15% do intervalo disponível;\n");
 
         System.out.println("\n- Penalidade por dica -\n");
         System.out.println("    Cada dica usada desconta determinada quantidade de pontos " +
                             "de sua partida, de acordo com seu tipo:\n\n" +
                             "    -1. -10 pontos\n" +
                             "    -2. -20 pontos\n" +
-                            "    -3. -15 pontos\n");
+                            "    -3. -15 pontos\n\n" +
+                            "    Obs.: os descontos são relativos à quantidade de números sorteados.\n" +
+                            "    Uma dica de tipo -1, quando aplicada no modo sequência (3 valores sorteados), \n" +
+                            "    será penalizada em 30 pontos, o triplo de 10.");
 
         System.out.println("\n");
     }

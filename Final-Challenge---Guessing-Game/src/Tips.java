@@ -4,30 +4,51 @@ public class Tips {
     static Scanner scan = new Scanner(System.in);
 
     public static int showTip(int guess){
-        System.out.print("\nDica: ");
+        System.out.print("\nDica:\n");
         switch(guess){
             case -1:{ // Parity
-                System.out.println("O valor sorteado é " + (Play.ans % 2 == 0 ? "par." : "ímpar."));
-                return Stats.TIP_PARITY_PENALTY;
+                for(int i=0; i<Play.ans.size(); i++){
+                    String ordinalIndex = (i+1) + "º ";
+                    System.out.println("O " + (Play.ans.size() >= 2 ? ordinalIndex : "") + 
+                                        "valor sorteado é " + (Play.ans.get(i) % 2 == 0 ? "par." : "ímpar."));
+                }
+                return Stats.TIP_PARITY_PENALTY * Play.ans.size();
             }
             case -2:{ // Interval
-                System.out.println("O valor sorteado está no intervalo " + 
-                                    (Play.ans > (Play.upperLim - Play.BOTTOM_LIM + 1) / 2 ? "superior." : "inferior."));
-                return Stats.TIP_INTERVAL_PENALTY;
+                for(int i=0; i<Play.ans.size(); i++){
+                    String ordinalIndex = (i+1) + "º ";
+                    System.out.println("O " + (Play.ans.size() >= 2 ? ordinalIndex : "") + "valor sorteado está no intervalo " + 
+                                    (Play.ans.get(i) > (Play.upperLim - Play.BOTTOM_LIM + 1) / 2 ? "superior." : "inferior."));
+                }
+                return Stats.TIP_INTERVAL_PENALTY * Play.ans.size();
             }
             case -3:{ // Promimity
-                final int dist = Math.abs(guess - Play.ans); 
-                final double relativeDist = dist / (Play.upperLim - Play.BOTTOM_LIM + 1);
+                if(guess < 1){
+                    System.out.println("A tentativa anterior não é válida para comparação!");
+                    return 0;
+                }
 
-                System.out.print("Sua tentativa está ");
-                if (relativeDist <= 0.05)
-                    System.out.println("quente.");
-                else if (relativeDist <= 0.15)
-                    System.out.println("morna.");
-                else 
-                    System.out.println("fria.");
+                int[] dist = new int[Play.ans.size()];
+                double[] relativeDist = new double[Play.ans.size()];
 
-                return Stats.TIP_PROXIMITY_PENALTY;
+                for(int i=0; i<Play.ans.size(); i++){
+                    dist[i] = Math.abs(guess - Play.ans.get(i));
+                    relativeDist[i] = dist[i] / (Play.upperLim - Play.BOTTOM_LIM + 1);
+                }
+
+                System.out.println("Sua tentativa está, em relação ao");
+                for(int i=0; i<Play.ans.size(); i++){
+                    String ordinalIndex = (i+1) + "º ";
+                    System.out.print((Play.ans.size() >= 2 ? ordinalIndex : "") + "valor sorteado: ");
+                    if (relativeDist[i] <= 0.05)
+                        System.out.println("quente.");
+                    else if (relativeDist[i] <= 0.15)
+                        System.out.println("morna.");
+                    else 
+                        System.out.println("fria.");
+                }
+
+                return Stats.TIP_PROXIMITY_PENALTY * Play.ans.size();
             }
             default:{
                 System.out.println("Erro ao calcular dica!");
