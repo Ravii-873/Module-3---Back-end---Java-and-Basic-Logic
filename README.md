@@ -136,3 +136,7 @@ conforme o tipo desejado de dica:
 | `-3` | Proximidade (quente/morno/frio) | -15 pts |
 
 Seu **histórico** de partidas e **recordes** é armazenado em toda execução do programa.
+
+#### ✨ Demonstração de execução do jogo
+
+![Demonstração de execução do jogo](README%20assets/challenge-demo.mp4)
