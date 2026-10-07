@@ -139,4 +139,7 @@ Seu **histórico** de partidas e **recordes** é armazenado em toda execução d
 
 #### ✨ Demonstração de execução do jogo
 
-![Demonstração de execução do jogo](README%20assets/challenge-demo.mp4)
+<video controls>
+  <source src="/README assets/challenge-demo.mp4" type="video/mp4">
+  Demonstração em vídeo da execução do jogo.
+</video>
