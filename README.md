@@ -32,8 +32,6 @@ Agora você tem o repositório clonado e aberto em seu terminal!
 │       ├── Play.java
 │       ├── Stats.java
 │       └── Tips.java
-├── README assets/
-├── README.md
 ├── task-1/
 │   ├── src/
 │   │   └── Main.java
