@@ -1,9 +1,9 @@
-.vscode
+**/settings.json
+**/bin/
+**/lib/
+**/.vscode/
 *.class
 TODO.txt
 
-*
-!*/
-!*.*
 *.exe
 *.o
