@@ -139,7 +139,4 @@ Seu **histórico** de partidas e **recordes** é armazenado em toda execução d
 
 #### ✨ Demonstração de execução do jogo
 
-<video width="710" height="479" controls>
-  <source src="/README assets/challenge-demo.mp4" type="video/mp4">
-  Demonstração em vídeo da execução do jogo.
-</video>
+<a href="https://www.youtube.com/watch?v=c-8jcJi0Tjs">DEMONSTRAÇÃO: 3035 Teach 2026 - Módulo 3 - Desafio Final - Jogo de Adivinhação</a>
