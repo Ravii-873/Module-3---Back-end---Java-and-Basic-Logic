@@ -27,41 +27,41 @@ Agora você tem o repositório clonado e aberto em seu terminal!
 ./
 ├── Final-Challenge---Guessing-Game/
 │   ├── Final Challenge Instructions.pdf
-│   └── src/
-│       ├── Main.java
-│       ├── Play.java
-│       ├── Stats.java
-│       └── Tips.java
+│   └── src/            -> Arquivos .java
+│       ├── Main.java   -> Mostra e administra menus e chamadas de métodos
+│       ├── Play.java   -> Executa o jogo
+│       ├── Stats.java  -> Armazena e mostra histórico e recordes
+│       └── Tips.java   -> Processa e apresenta dicas
 ├── task-1/
 │   ├── src/
-│   │   └── Main.java
+│   │   └── Main.java   -> Hello world
 │   └── Task 1 Instructions.pdf
 ├── task-2/
 │   ├── src/
-│   │   ├── Ex1.java
-│   │   ├── Ex2.java
-│   │   └── Ex3.java
+│   │   ├── Ex1.java    -> Nome & Idade
+│   │   ├── Ex2.java    -> Operações matemáticas
+│   │   └── Ex3.java    -> Imprime salário
 │   └── Task 2 Instructions.pdf
 ├── task-3/
-│   ├── Exercises.txt
+│   ├── Exercises.txt   -> Respostas da lista de operações lógicas
 │   └── Task 3 Instructions.pdf
 ├── task-4/
 │   ├── src/
-│   │   ├── Ex1.java
-│   │   ├── Ex2.java
-│   │   ├── Ex3.java
-│   │   ├── Ex4.java
-│   │   ├── Ex5.java
-│   │   ├── Ex6.java
-│   │   └── Ex7.java
+│   │   ├── Ex1.java    -> A+B < C
+│   │   ├── Ex2.java    -> Estado civil
+│   │   ├── Ex3.java    -> Par ou ímpar
+│   │   ├── Ex4.java    -> Somar ou multiplicar
+│   │   ├── Ex5.java    -> Dobro ou triplo
+│   │   ├── Ex6.java    -> Soma 5 ou 8
+│   │   └── Ex7.java    -> Ordem descrescente
 │   └── Task 4 Instructions.pdf
 └── task-5/
     ├── src/
-    │   ├── Ex1.java
-    │   ├── Ex2.java
-    │   ├── Ex3.java
-    │   ├── Ex4.java
-    │   └── Ex5.java
+    │   ├── Ex1.java    -> 0-100 pares
+    │   ├── Ex2.java    -> Acertar um inteiro aleatório
+    │   ├── Ex3.java    -> Tabuada
+    │   ├── Ex4.java    -> Quantidade de maiores de idade
+    │   └── Ex5.java    -> Pares até o número digitado
     └── Task 5 Instructions.pdf
 ```
 
@@ -129,14 +129,20 @@ Para isto, ao invés de tentar adivinhar o valor sorteado,
 digite um dos seguintes valores NEGATIVOS, 
 conforme o tipo desejado de dica: 
 
+*N é a quantidade de valores sorteados no modo.*
+
 | Digite | Dica | Custo |
 | :--- | :--- | ---: |
-| `-1` | Paridade (par/ímpar) | -10 pts |
-| `-2` | Intervalo (inferior/superior) | -20 pts |
-| `-3` | Proximidade (quente/morno/frio) | -15 pts |
+| `-1` | Paridade (par/ímpar) | -10 * N pts |
+| `-2` | Intervalo (inferior/superior) | -20 * N pts |
+| `-3` | Proximidade (quente/morno/frio) | -15 * N pts |
 
 Seu **histórico** de partidas e **recordes** é armazenado em toda execução do programa.
 
 #### ✨ Demonstração de execução do jogo
 
 <a href="https://www.youtube.com/watch?v=c-8jcJi0Tjs">DEMONSTRAÇÃO: 3035 Teach 2026 - Módulo 3 - Desafio Final - Jogo de Adivinhação</a>
+
+### ⚖️ LICENÇA
+
+Este repositório é protegido pela <a href="./LICENSE">**MIT License**</a>

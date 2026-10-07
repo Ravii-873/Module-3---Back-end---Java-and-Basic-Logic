@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Tips {
     static Scanner scan = new Scanner(System.in);
 
-    public static int showTip(int guess){
+    public static int showTip(int lastGuess, int guess){
         System.out.print("\nDica:\n");
         switch(guess){
             case -1:{ // Parity
@@ -23,7 +23,7 @@ public class Tips {
                 return Stats.TIP_INTERVAL_PENALTY * Play.ans.size();
             }
             case -3:{ // Promimity
-                if(guess < 1){
+                if(lastGuess < 1){
                     System.out.println("A tentativa anterior não é válida para comparação!");
                     return 0;
                 }
@@ -32,8 +32,8 @@ public class Tips {
                 double[] relativeDist = new double[Play.ans.size()];
 
                 for(int i=0; i<Play.ans.size(); i++){
-                    dist[i] = Math.abs(guess - Play.ans.get(i));
-                    relativeDist[i] = dist[i] / (Play.upperLim - Play.BOTTOM_LIM + 1);
+                    dist[i] = Math.abs(lastGuess - Play.ans.get(i));
+                    relativeDist[i] = dist[i] / (double)(Play.upperLim - Play.BOTTOM_LIM + 1);
                 }
 
                 System.out.println("Sua tentativa está, em relação ao");
