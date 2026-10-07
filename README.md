@@ -129,11 +129,13 @@ Para isto, ao invés de tentar adivinhar o valor sorteado,
 digite um dos seguintes valores NEGATIVOS, 
 conforme o tipo desejado de dica: 
 
+*N é a quantidade de valores sorteados no modo.*
+
 | Digite | Dica | Custo |
 | :--- | :--- | ---: |
-| `-1` | Paridade (par/ímpar) | -10 pts |
-| `-2` | Intervalo (inferior/superior) | -20 pts |
-| `-3` | Proximidade (quente/morno/frio) | -15 pts |
+| `-1` | Paridade (par/ímpar) | -10 * N pts |
+| `-2` | Intervalo (inferior/superior) | -20 * N pts |
+| `-3` | Proximidade (quente/morno/frio) | -15 * N pts |
 
 Seu **histórico** de partidas e **recordes** é armazenado em toda execução do programa.
 
