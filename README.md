@@ -1,6 +1,6 @@
 # 3035 Teach - Módulo 3 - Back-end - Java e Lógica Básica
 
-## O que este repositório contém
+### O que este repositório guarda
 
 O repositório armazena tarefas de treino e desafios práticos para o terceiro módulo do curso 3035 Teach.
 [3035 Teach](https://www.instagram.com/3035teach/) é um curso full stack de programação e soft skills de 7 meses.
@@ -67,11 +67,12 @@ Agora você tem o repositório clonado e aberto em seu terminal!
 
 ### Como executar
 Cada tarefa tem um formato específico:
-- task-1 tem somente /src/Main.java, com o clássico "Hello, world!" sendo impresso.
-- task-3 é integralmente teórica. Somente leitura, sem execução.
-- task-{2, 4, 5} têm múltiplos exercícios.
+- `task-1` tem somente /src/Main.java, com o clássico "Hello, world!" sendo impresso.
+- `task-3` é integralmente teórica. Somente leitura, sem execução.
+- `task-2, task-4, task-5` têm múltiplos exercícios.
     Cada um deles pode ser testado:
-**Exemplo de teste para task-4 / Ex2**
+
+*Exemplo de teste para task-4 / Ex2*
 
 ```
 cd task-4/src
@@ -79,13 +80,14 @@ javac Ex2.java
 java Ex2
 ```
 
-## Final Challenge - Guessing Game
+## Desafio Final - Jogo de Adivinhação
 
 Leia as instruções dadas para o projeto em seu *PDF*.
 
 **Resumo:** 
 O projeto consiste em um jogo *CLI* simples programado em Java.
-O objetivo do jogador é advinhar números ou conjuntos de números aleatórios dentro de um limite de tentativas. Sua pontuação é contabilizada de acordo com critérios específicos e é registrada num histórico temporário durante a execução.
+- O objetivo do jogador é adivinhar números ou conjuntos de números aleatórios dentro de um limite de tentativas. 
+- Sua pontuação é contabilizada de acordo com critérios específicos e é registrada num histórico temporário durante a execução.
 
 ### Executando
 
@@ -95,16 +97,7 @@ javac Main.java
 java Main
 ```
 
-Observação: ```javac Main.java``` funciona porque
-```
-src/
-├── Main.java
-├── Play.java
-├── Stats.java
-└── Tips.java
-```
-
-estão na mesma pasta.
+Observação: `javac Main.java` funciona porque `Main`, `Play`, `Stats` e `Tips` estão na mesma pasta.
 
 Confira se você entrou no menu principal do jogo:
 
@@ -112,14 +105,13 @@ Confira se você entrou no menu principal do jogo:
 
 ### Como jogar
 
-- Recomenda-se que se comece lendo as regras do jogo. Para isto, digite ```2```.
-- Para começar uma nova partida, digite ```1```.
-- Após registrar ao menos uma partida, digite ```3``` para conferir histórico e recordes.
-- Digite ```4``` para sair.
+- Recomenda-se que se comece lendo as regras do jogo. Para isto, digite `2`.
+- Para começar uma nova partida, digite `1`.
+- Após registrar ao menos uma partida, digite `3` para conferir histórico e recordes.
+- Digite `4` para sair.
 
-**Objetivo:** Adivinhar número(s) aleatório(s) num intervalo, sem exceder o limite de tentativas.
+**Objetivo:** Adivinhar número(s) aleatório(s) num intervalo com o menor número de tentativas possível.
 - O jogo tem modos e dificuldades que podem ser selecionados pelo jogador antes de toda partida.
-- A mecânica consiste em adivinhar números ou sequências de números aleatórios no menor número de tentativas possível.
 
 #### Modos:
 1. Simples (um número sorteado)
