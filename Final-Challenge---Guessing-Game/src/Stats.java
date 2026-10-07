@@ -82,7 +82,7 @@ public class Stats {
         System.out.println("\n\n===== Regras =====\n");
 
         System.out.println("- Objetivo:\n" +
-                            "    Advinhar um número aleatório num intervalo,\n" + 
+                            "    Adivinhar um número aleatório num intervalo,\n" + 
                             "    sem exceder o limite de tentativas\n");
 
         System.out.println("\n-- Sistema de Dificuldade --\n");
@@ -95,24 +95,24 @@ public class Stats {
                             "        Pontuação base: 100.\n");
 
         System.out.println("    Médio:\n" + 
-                            "        Advinhar um número entre: 1 e 100;\n" +
+                            "        Adivinhar um número entre: 1 e 100;\n" +
                             "        Tentativas: 7;\n" + 
                             "        Pontuação base: 200.\n");
 
         System.out.println("    Difícil:\n" + 
-                            "        Advinhar um número entre: 1 e 200;\n" +
+                            "        Adivinhar um número entre: 1 e 200;\n" +
                             "        Tentativas: 5;\n" + 
                             "        Pontuação base: 300.\n");
 
         System.out.println("= Modo Sequência =\n");
 
         System.out.println("    Avançado:\n" + 
-                            "        Advinhar três números entre: 1 e 200;\n" +
+                            "        Adivinhar três números entre: 1 e 200;\n" +
                             "        Tentativas: 13;\n" + 
                             "        Pontuação base: 500.\n");
         
         System.out.println("    Especialista:\n" + 
-                            "        Advinhar três números entre: 1 e 400;\n" +
+                            "        Adivinhar três números entre: 1 e 400;\n" +
                             "        Tentativas: 18;\n" + 
                             "        Pontuação base: 700.\n");
 
@@ -129,7 +129,7 @@ public class Stats {
         System.out.println("\n-- Sistema de Dicas --\n");
 
         System.out.println("    Você pode pedir uma dica a qualquer momento do jogo.");
-        System.out.println("    Para isto, ao invés de tentar advinhar o valor sorteado, \n" +
+        System.out.println("    Para isto, ao invés de tentar adivinhar o valor sorteado, \n" +
                             "    digite um dos seguintes valores NEGATIVOS, \n" +
                             "    conforme o tipo desejado de dica: \n");
 
