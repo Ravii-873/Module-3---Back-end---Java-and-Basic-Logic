@@ -87,6 +87,7 @@ public class Play {
         System.out.println("--- Você pode pedir dicas (pagando penalidade em pontos) a qualquer momento, digitando -1, -2 ou -3 ---\n");
 
         boolean win = false;
+        int lastGuess = 0;
         while(remAttempts > 0 && !win){
             System.out.println("\nTentativas restantes: " + remAttempts);
             System.out.print("Seu chute .............: ");
@@ -146,10 +147,12 @@ public class Play {
                     break;
                 }
                 case 3:{
-                    score += Tips.showTip(guess);
+                    score += Tips.showTip(lastGuess, guess);
                     break;
                 }
             }
+
+            lastGuess = guess;
         }
     }
 
