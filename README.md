@@ -1,18 +1,19 @@
-## 3035 Teach's Module 3 - Back-end - Java and Basic Logic
+# 3035 Teach - Módulo 3 - Back-end - Java e Lógica Básica
 
-### O que este repositório contém
+## O que este repositório contém
 
 O repositório armazena tarefas de treino e desafios práticos para o terceiro módulo do curso 3035 Teach.
+[3035 Teach](https://www.instagram.com/3035teach/) é um curso full stack de programação e soft skills de 7 meses.
 
 Cada tarefa ou desafio tem um *PDF* com as instruções que motivaram o desenvolvimento da tarefa.
 
-#### Requerimentos
-- Java 7 ou superior
-- Git ou forma de clonar o projeto
+### Requisitos
+- [JDK 8 (LTS) ou superior](https://www.oracle.com/br/java/technologies/downloads/#java25)
+- [Git](https://github.com/git-guides/install-git) ou baixe o *ZIP* pelo botão code do GitHub.
 
-#### Clonando o repositório
-1. Navegue até a pasta para onde deseja clonar o repositório.
-2. Abra-a no terminal.
+### Clonando o repositório
+Abra o terminal na pasta onde quer o projeto e rode:
+
 ```
 git clone https://github.com/Ravii-873/Module-3---Back-end---Java-and-Basic-Logic.git
 cd Module-3---Back-end---Java-and-Basic-Logic
@@ -68,22 +69,27 @@ Agora você tem o repositório clonado e aberto em seu terminal!
 
 ### Como executar
 Cada tarefa tem um formato específico:
+- task-1 tem somente /src/Main.java, com o clássico "Hello, world!" sendo impresso.
 - task-3 é integralmente teórica. Somente leitura, sem execução.
-- task-{1, 2, 4, 5} têm múltiplos exercícios.
+- task-{2, 4, 5} têm múltiplos exercícios.
     Cada um deles pode ser testado:
-###### Exemplo de teste para task-1 / Ex1
+**Exemplo de teste para task-4 / Ex2**
 
 ```
-cd task-1/src
-javac Ex1.java
-java Ex1
+cd task-4/src
+javac Ex2.java
+java Ex2
 ```
 
-### Final Challenge - Guessing Game
+## Final Challenge - Guessing Game
 
-1. Leia as instruções do projeto em seu *PDF*.
+Leia as instruções dadas para o projeto em seu *PDF*.
 
-##### Executando
+**Resumo:** 
+O projeto consiste em um jogo *CLI* simples programado em Java.
+O objetivo do jogador é advinhar números ou conjuntos de números aleatórios dentro de um limite de tentativas. Sua pontuação é contabilizada de acordo com critérios específicos e é registrada num histórico temporário durante a execução.
+
+### Executando
 
 ```
 cd Final-Challenge---Guessing-Game/src
@@ -91,19 +97,33 @@ javac Main.java
 java Main
 ```
 
+Observação: ```javac Main.java``` funciona porque
+```
+src/
+├── Main.java
+├── Play.java
+├── Stats.java
+└── Tips.java
+```
+
+estão na mesma pasta.
+
 Confira se você entrou no menu principal do jogo:
 
 ![Menu principal](README%20assets/main-menu.png)
 
-#### Como jogar
+### Como jogar
 
-Recomenda-se que se comece lendo as regras do jogo.
-Para isto, digite ```2```.
+- Recomenda-se que se comece lendo as regras do jogo. Para isto, digite ```2```.
+- Para começar uma nova partida, digite ```1```.
+- Após registrar ao menos uma partida, digite ```3``` para conferir histórico e recordes.
+- Digite ```4``` para sair.
 
+**Objetivo:** Adivinhar número(s) aleatório(s) num intervalo, sem exceder o limite de tentativas.
 - O jogo tem modos e dificuldades que podem ser selecionados pelo jogador antes de toda partida.
 - A mecânica consiste em adivinhar números ou sequências de números aleatórios no menor número de tentativas possível.
 
-##### Modos:
+#### Modos:
 1. Simples (um número sorteado)
     - Fácil
     - Médio
@@ -119,14 +139,10 @@ Para isto, ao invés de tentar adivinhar o valor sorteado,
 digite um dos seguintes valores NEGATIVOS, 
 conforme o tipo desejado de dica: 
 
-    -1. Dica sobre a paridade do(s) valor(es) sorteado(s) (par/ímpar)
-    -2. Dica sobre o(s) intervalo(s) do(s) valor(es) sorteado(s) (inferior/superior)
-    -3. Dica sobre a proximidade do chute anterior ao(s) valor(es) sorteado(s) (quente/morno/frio)
-
-Toda dica é paga com pontos a menos no resultado da partida:
-
-    -1. -10 pontos
-    -2. -20 pontos
-    -3. -15 pontos
+| Digite | Dica | Custo |
+| :--- | :--- | ---: |
+| `-1` | Paridade (par/ímpar) | -10 pts |
+| `-2` | Intervalo (inferior/superior) | -20 pts |
+| `-3` | Proximidade (quente/morno/frio) | -15 pts |
 
 Seu **histórico** de partidas e **recordes** é armazenado em toda execução do programa.
